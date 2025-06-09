@@ -178,6 +178,17 @@ skal returnere:
 ******************************************************************************/
 
 // Skriv koden for oppgave 3 her
+let ord = [" thIS", "teXt  ", " nEeds ", "to", "BE", "cleANED   ", " Up"];
+
+function ryddOgSettSammen(ordArray) {
+  let rensedeOrd = [];
+
+  for (let tekst of ordArray) {
+    let renset =tekst.trim().toLowerCase();
+    rensedeOrd.push(renset);
+}
+return rensedeOrd.join(" ");
+}
 
 /******************************************************************************
 4.
@@ -205,8 +216,20 @@ skal returnere "whao is ohe ptino tf ohis?"
 ******************************************************************************/
 
 function doubleSwap(string, charA, charB) {
-  // Skriv koden for oppgave 4 her
+  let resultat = "";
+
+for (let tegn of string) {
+  if (tegn === charA) {
+    resultat += charB;
+  } else if (tegn === charB) {
+    resultat += charA;
+  } else {
+    resultat += tegn;
+  }
 }
+return resultat;
+}
+
 
 /******************************************************************************
 5.
