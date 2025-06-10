@@ -90,13 +90,6 @@ let combinedAge = 0;
 
 // Skriv koden for oppgave 1 her
 
-let averageAge = 0;
-
-for (let i = 0; i < personer.lenght; ++i) {
-  if (personer[i] === "Otto") {
-    continue;
-  }
-}
 const city = [
   "Oslo",
   "Bergen",
@@ -107,19 +100,23 @@ const city = [
   "Drammen",
   "Ålesund",
 ];
-for (let i = 0; i < personer.lenght; i++) {
-  const randomCity = cities[(Math,floor(Math.random() * cities.lenght)];
-  person.city = randomCity;
+for (let i = 0; i < people.length; i++) {
+  if (people[i].name === "Otto") {
+    continue;
+  }
+  people[i].city = cities[Math.floor(Math.random() * cities.length)];
+  people[i].title = people[i].male ? "Mr." : "Mrs.";
+  people[i].age += 2;
+  people[i].hobbies.unshift("coding");
+  combinedAge += people[i].age;
 }
-person.title = person.male ? "Mr."; "Mrs.";
-person.age += 2;
-person.hobbies.unshift("coding");
-combinedAge += person.age;
-const averageAge = combinedAge / (people.lenght - 1);
-
 console.log(people);
+let averageAge = combinedAge / (people.length - 1);
+
+console.log(averageAge);
+/*console.log(people);
 console.log("Combined Age", combinedAge);
-console.log("Average Age", averageAge,toFixed(2));
+/*console.log("Average Age", averageAge, toFixed(2));
 
 /******************************************************************************
 2.
@@ -142,16 +139,16 @@ diceRoller(5, 20) skal returnere et array med 5 tilfeldige tall fra 1-20.
 ******************************************************************************/
 
 // Skriv koden for oppgave 2 her
-function diceRoller(antallKast, antallSider = 6) {
-    const resultater = [];
-for (let i = 0; i < antallKast; i++) {
-    const kast = Math,floor(Math,random() * antallSider) + 1;
+function diceRoller(antallKast, antallSider) {
+  const resultater = [];
+  for (let i = 0; i < antallKast; i++) {
+    const kast = Math.floor(Math.random() * antallSider) + 1;
     resultater.push(kast);
-}
-return resultater;
+  }
+  return resultater;
 }
 
-
+console.log(diceRoller(3, 6));
 /******************************************************************************
 3.
 
@@ -184,12 +181,12 @@ function ryddOgSettSammen(ordArray) {
   let rensedeOrd = [];
 
   for (let tekst of ordArray) {
-    let renset =tekst.trim().toLowerCase();
+    let renset = tekst.trim().toLowerCase();
     rensedeOrd.push(renset);
+  }
+  return rensedeOrd.join(" ");
 }
-return rensedeOrd.join(" ");
-}
-
+console.log(ryddOgSettSammen(ord));
 /******************************************************************************
 4.
 
@@ -218,19 +215,19 @@ skal returnere "whao is ohe ptino tf ohis?"
 function doubleSwap(string, charA, charB) {
   let resultat = "";
 
-for (let tegn of string) {
-  if (tegn === charA) {
-    resultat += charB;
-  } else if (tegn === charB) {
-    resultat += charA;
-  } else {
-    resultat += tegn;
+  for (let tegn of string) {
+    if (tegn === charA) {
+      resultat += charB;
+    } else if (tegn === charB) {
+      resultat += charA;
+    } else {
+      resultat += tegn;
+    }
   }
+  return resultat;
 }
-return resultat;
-}
-
-
+console.log(doubleSwap("this is a string", "i", "s"));
+console.log(doubleSwap("what is the point of this?", "o", "t"));
 /******************************************************************************
 5.
 
